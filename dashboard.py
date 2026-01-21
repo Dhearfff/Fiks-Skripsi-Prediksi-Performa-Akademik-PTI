@@ -369,15 +369,20 @@ with tab_prediksi:
         # OUTPUT PREDIKSI
         # ======================
         st.subheader("Hasil Prediksi Performa Akademik")
-
-        # Mapping label 
-        label_prediksi = "IPK < 3.5" if prediksi == 0 else "≥ 3.5" 
+        
+        # Mapping label dengan deskripsi
+        if prediksi == 0:
+            label_prediksi = "IPK < 3.5 (performa akademik lebih rendah)"
+        else:
+            label_prediksi = "IPK ≥ 3.5 (performa akademik lebih baik)"
+        
         st.success(f"Kategori Performa Akademik: {label_prediksi}")
-
+        
         st.write(
             f"Tingkat Keyakinan Model terhadap hasil prediksi sebesar "
             f"{probabilitas:.2f}"
         )
+
 
         # ======================
         # ANALISIS BIDANG
@@ -552,4 +557,5 @@ with tab_info:
 
     st.subheader("Daftar Mata Kuliah Pilihan Program Studi")
     st.dataframe(df_mk_pilihan, use_container_width=True)
+
 
