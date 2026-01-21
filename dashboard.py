@@ -374,7 +374,7 @@ with tab_prediksi:
         if prediksi == 0:
             label_prediksi = "IPK < 3.5 (performa akademik lebih rendah)"
         else:
-            label_prediksi = "IPK ≥ 3.5 (performa akademik lebih baik)"
+            label_prediksi = "IPK ≥ 3.5 (performa akademik lebih tinggi)"
         
         st.success(f"Kategori Performa Akademik: {label_prediksi}")
         
@@ -557,5 +557,6 @@ with tab_info:
 
     st.subheader("Daftar Mata Kuliah Pilihan Program Studi")
     st.dataframe(df_mk_pilihan, use_container_width=True)
+
 
 
