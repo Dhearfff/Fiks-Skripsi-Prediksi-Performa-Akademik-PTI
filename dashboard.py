@@ -300,7 +300,8 @@ with tab_prediksi:
             "MK_WAJIB_PRODI": 0.0,
             "MK_WAJIB_FAKULTAS": 0.0,
             "MK_WAJIB_UMUM": 0.0,
-            "MK_WAJIB_UNIVERSITAS": 0.0
+            "MK_WAJIB_UNIVERSITAS": 0.0,
+            "MK_PILIHAN_PRODI": 0.0
         }
 
         for k in kategori_wajib:
@@ -334,7 +335,9 @@ with tab_prediksi:
         "RATA2_MK_WAJIB_PRODI": rata_mk["MK_WAJIB_PRODI"],
         "RATA2_MK_WAJIB_FAKULTAS": rata_mk["MK_WAJIB_FAKULTAS"],
         "RATA2_MK_WAJIB_UMUM": rata_mk["MK_WAJIB_UMUM"],
-        "RATA2_MK_WAJIB_UNIVERSITAS": rata_mk["MK_WAJIB_UNIVERSITAS"]
+        "RATA2_MK_WAJIB_UNIVERSITAS": rata_mk["MK_WAJIB_UNIVERSITAS"],
+        "RATA2_MK_PILIHAN_PRODI": rata_mk["MK_PILIHAN_PRODI"]
+            
         }
 
         df_input = pd.DataFrame([data_ml])
@@ -557,6 +560,7 @@ with tab_info:
 
     st.subheader("Daftar Mata Kuliah Pilihan Program Studi")
     st.dataframe(df_mk_pilihan, use_container_width=True)
+
 
 
 
