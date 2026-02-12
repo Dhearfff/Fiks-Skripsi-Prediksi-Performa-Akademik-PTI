@@ -440,14 +440,18 @@ with tab_info:
     st.subheader("Informasi Perhitungan")
 
     st.markdown("""
-    Rata Rata Nilai Keseluruhan dihitung dari rata rata seluruh nilai mata kuliah.
-
-    Proporsi Nilai A dihitung dari jumlah mata kuliah bernilai A dibagi total mata kuliah.
-
-    Rata Rata MK dihitung berdasarkan kelompok mata kuliah.
-
-    Nilai Rata Rata Bidang dihitung dari mata kuliah dalam bidang A sampai I.
+    Tab ini berisi penjelasan mengenai variabel yang digunakan dalam model prediksi:
+    
+    - **Jenis Kelamin & Seleksi**: faktor demografi dan jalur masuk mahasiswa.
+    - **Kerja Ayah/Ibu & Pendidikan Ayah/Ibu**: latar belakang keluarga yang dapat memengaruhi dukungan akademik.
+    - **Riwayat Prestasi & Beasiswa**: indikator non-akademik yang menunjukkan pencapaian dan dukungan finansial.
+    - **IPS Semester 1–5 & Tren IPS**: menggambarkan perkembangan nilai mahasiswa dari waktu ke waktu.
+    - **Rata-rata MK Wajib (Prodi, Fakultas, Universitas, Umum) & MK Pilihan Prodi**: menunjukkan konsistensi capaian akademik berdasarkan kelompok mata kuliah.
+    - **IPK Semester 6**: indikator utama performa akademik mahasiswa secara keseluruhan.
+    
+    Informasi ini membantu pengguna dashboard memahami konteks variabel yang digunakan dalam proses klasifikasi performa akademik.
     """)
+
 
     st.subheader("Informasi Bidang Keahlian")
     for k, v in keterangan_bidang.items():
@@ -560,6 +564,7 @@ with tab_info:
 
     st.subheader("Daftar Mata Kuliah Pilihan Program Studi")
     st.dataframe(df_mk_pilihan, use_container_width=True)
+
 
 
 
