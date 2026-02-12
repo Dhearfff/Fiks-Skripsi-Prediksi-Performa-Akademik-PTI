@@ -413,17 +413,22 @@ with tab_prediksi:
         # ANALISIS KATEGORI MK
         # ======================
         st.subheader("Analisis Kategori Mata Kuliah")
-        st.bar_chart(rata_kategori)
+        # Buang kategori 'LAINNYA' dari data 
+        rata_kategori_filtered = rata_kategori.drop(index='LAINNYA', errors='ignore')
+        st.bar_chart(rata_kategori_filtered)
+        # Buang 'LAINNYA' dari daftar kategori unggul 
+        kategori_unggul_filtered = [k for k in kategori_unggul if k != 'LAINNYA']
 
-        if len(kategori_unggul) == 1:
+        if len(kategori_unggul_filtered) == 1:
             st.write(
-                f"Mahasiswa cenderung unggul pada kategori mata kuliah **{kategori_unggul[0]}**."
+                f"Mahasiswa cenderung unggul pada kategori mata kuliah **{kategori_unggul_filtered[0]}**."
+            )
+        elif len(kategori_unggul_filtered) > 1:
+            st.write(
+                "Mahasiswa menunjukkan kecenderungan unggul pada beberapa kategori mata kuliah, yaitu: " + ", ".join(kategori_unggul_filtered) + "."
             )
         else:
-            st.write(
-                "Mahasiswa menunjukkan kecenderungan unggul pada beberapa kategori mata kuliah, yaitu: "
-                + ", ".join(kategori_unggul) + "."
-            )
+            st.write("Tidak ada kategori unggul yang ditampilkan.")
 
 
         # ======================
@@ -564,6 +569,7 @@ with tab_info:
 
     st.subheader("Daftar Mata Kuliah Pilihan Program Studi")
     st.dataframe(df_mk_pilihan, use_container_width=True)
+
 
 
 
